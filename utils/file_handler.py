@@ -8,7 +8,7 @@ from googleapiclient.http import MediaIoBaseUpload
 import io
 
 # Load credentials from Streamlit secrets
-key_dict = json.loads(st.secrets["gdrive_service_account"])
+key_dict = st.secrets["gdrive_service_account"]
 credentials = service_account.Credentials.from_service_account_info(
     key_dict, scopes=["https://www.googleapis.com/auth/drive"]
 )
