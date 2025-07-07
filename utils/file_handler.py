@@ -12,7 +12,6 @@ PARENT_FOLDER_ID = "1PZ6fnX1on99379B9CGRuYEl6zbLqcpqV"
 
 def get_drive():
     key_dict = dict(st.secrets["gdrive_service_account"])
-    print(key_dict)
     gauth = GoogleAuth()
     gauth.credentials = ServiceAccountCredentials.from_json_keyfile_dict(
         key_dict,

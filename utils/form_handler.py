@@ -17,16 +17,21 @@ def candidate_form():
             f"Grade for {course}",
             ["A", "B", "C", "D", "F"],
             index=1,
-            key=course
+            key=f"comp_{course}"
         )
-    candidate_data["grades"] = grades
 
-    # Optional Courses
-    st.subheader("Optional Courses")
-    candidate_data["optional_courses"] = st.multiselect(
-        "Select optional courses:",
-        ["ML", "AI", "Data Science"]
-    )
+    # Optional Courses - always shown
+    st.subheader("Optional Courses (select grade or 'Not Taken')")
+    optional_courses = ["ML", "AI", "Data Science"]
+    for course in optional_courses:
+        grades[course] = st.radio(
+            f"Grade for {course}",
+            ["A", "B", "C", "D", "F", "Not Taken"],
+            index=5,  # default to "Not Taken"
+            key=f"opt_{course}"
+        )
+
+    candidate_data["grades"] = grades
 
     # Recommendation
     st.subheader("Final Recommendation")
