@@ -11,6 +11,6 @@ candidate_data, resume_file = candidate_form()
 if st.button("Submit and Save"):
     if candidate_data and resume_file:
         folder_path = save_candidate_data(candidate_data, resume_file)
-        st.success(f" Candidate data saved in: {folder_path}")
+        st.success(f" Candidate data saved successfully.")
     else:
         st.error("Please fill in all required fields and upload a resume.")
